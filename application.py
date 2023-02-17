@@ -11,10 +11,10 @@ def create_app(**config_overrides):
     @app.route("/", methods=("GET", "POST"))
     def index():
         if request.method == "POST":
-            animal = request.form["animal"]
+            input_text = request.form["input_text"]
             response = openai.Completion.create(
                 model="text-davinci-003",
-                prompt=generate_prompt(animal),
+                prompt=generate_prompt(input_text),
                 temperature=0.6,
             )
             return redirect(url_for("index", result=response.choices[0].text))
@@ -25,5 +25,5 @@ def create_app(**config_overrides):
     return app
 
 
-def generate_prompt(animal):
-    return f"Translate into natural Colombian Spanish: '{animal}'"
+def generate_prompt(input_text):
+    return f"Translate into natural Colombian Spanish: '{input_text}'"
