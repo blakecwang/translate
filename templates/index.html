@@ -6,51 +6,37 @@
         rel="shortcut icon"
         href="{{ url_for('static', filename='colombian_flag.png') }}"
     />
-    <link
-        rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous"
-    />
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </head>
 <body>
     <div class="container">
         <img src="{{ url_for('static', filename='colombian_flag.png') }}" class="icon" />
         <h3 class="text-center">Speak Colombian</h3>
         <form action="/" method="post">
-            <div class="form-floating mb-3">
-                <textarea
-                  class="form-control"
-                  name="input_text"
-                  rows="4"
-                  placeholder="Input text"
-                  required
-                ></textarea>
-                <label for="input_text">Input text</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Translate</button>
+            <textarea
+                class="form-control"
+                name="input_text"
+                rows="4"
+                placeholder="Input text"
+                required
+            ></textarea>
+            <input type="submit" value="Translate" />
         </form>
         {% if result %}
-        <div class="result my-3 p-3 bg-white rounded">
+        <div class="result">
             {{ result }}
         </div>
         {% endif %}
     </div>
-    <script
-        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"
-    ></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"
-    ></script>
-    <script
-        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"
-    ></script>
+    <script>
+        $("textarea").keypress(function (e) {
+            if (e.which === 13 && !e.shiftKey) {
+                e.preventDefault();
+
+                $(this).closest("form").submit();
+            }
+        });
+    </script>
 </body>
 </html>

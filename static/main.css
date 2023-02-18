@@ -1,0 +1,59 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem 2rem;
+    font-family: "arial";
+    font-weight: bold;
+}
+
+.icon {
+    width: 20rem;
+}
+
+h3 {
+  font-size: 6rem;
+  line-height: 2.0;
+  font-weight: bold;
+  color: black;
+}
+
+input {
+    color: white;
+    background-color: #003893;
+    border: none;
+    border-radius: 1rem;
+    text-align: center;
+    cursor: pointer;
+    margin: 4rem 0;
+    font-size: 5rem;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+textarea {
+    width: 100%;
+    padding: 1rem 2rem;;
+    border-radius: 1rem;
+}
+
+textarea,
+textarea::placeholder {
+    font-size: 4rem;
+    line-height: 1.5;
+    font-family: "arial";
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.result {
+    width: 100%;
+    font-size: 4rem;
+    line-height: 1.5;
+    font-weight: bold;
+}
